@@ -25,13 +25,14 @@ public class MainApp {
         @Produces
         @Named("quadraticAlgorithm")
         public SortingAlgorithm<Integer> produceQuadraticAlgorithm() {
-            return new BubbleSort(); // Replace with the actual quadratic sorting algorithm
+            return container.select(BubbleSort.class).get();
+
         }
 
         @Produces
         @Named("nlognAlgorithm")
         public SortingAlgorithm<Integer> produceNlognAlgorithm() {
-            return new QuickSort(); // Replace with the actual nlogn sorting algorithm
+            return container.select(QuickSort.class).get();
         }
 
         @Produces
@@ -49,7 +50,7 @@ public class MainApp {
         @Produces
         @Named("numberOfElements")
         public int produceNumberOfElements() {
-            return new Random().nextInt(7000, 10001); // Replace with your desired number of elements or make it configurable
+            return new Random().nextInt(10000, 99999); // Replace with your desired number of elements or make it configurable
         }
 
         @Produces
